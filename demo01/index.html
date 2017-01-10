@@ -7,11 +7,39 @@
   </head>
   <body>
     <div id="example"></div>
-    <script type="text/babel">
+    <script type="text/babel"> //xml   JSX
+    /* var CommentBox =React.createClass({
+       displayName:'CommentBox',
+       render:function () {
+         return(
+                React.createElement('div',{className:'commentBox'},
+                'Hello,world!I am a CommentBox.'
+                )
+         );
+       }
+     });
       ReactDOM.render(
-        <h1>Hello, world!</h1>,
-        document.getElementById('example')
-      );
+             React.createElement(CommentBox,null),
+              document.getElementById('example')
+      );*/
+
+    var CommentBox =React.createClass({
+      handleClick:function () {
+       this.refs.myTextInput.focus();
+      },
+      render:function () {
+        return (
+             <div>
+               <input type="text" ref="myTextInput" />
+               <input type="button" value="Focus the text input" onclick={this.handleClick} />
+             </div>
+        );
+      }
+    });
+    ReactDOM.render(
+          <CommentBox/>,
+            document.getElementById('example')
+    );
     </script>
   </body>
 </html>
